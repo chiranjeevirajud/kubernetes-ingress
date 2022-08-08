@@ -177,11 +177,11 @@ spec:
 
 ### Generate self signed certificates
 ```
-$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out mithun-ingress-tls.crt -keyout mithun-ingress-tls.key -subj "/CN=javawebapp.mithuntechdevops.co.in/O=mithun-ingress-tls"
+$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out chiru-ingress-tls.crt -keyout chiru-ingress-tls.key -subj "/CN=javawebapp.mithuntechdevops.co.in/O=mithun-ingress-tls"
 
 # Create secret for with your certificate .key & .crt file
 
-$ kubectl create secret tls mithun-ingress-tls --namespace default --key mithun-ingress-tls.key --cert mithun-ingress-tls.crt
+$ kubectl create secret tls chiru-ingress-tls --namespace default --key chiru-ingress-tls.key --cert chiru-ingress-tls.crt
 ```
 ### Mention tls/ssl(certificate) details in ingress
 ```
@@ -192,11 +192,11 @@ metadata:
 spec:
   tls:
   - hosts:
-     - javawebapp.mithuntechdevops.co.in
+     - javawebapp.demo.co.in
      secretName: mithun-ingress-tls
   ingressClassName: nginx
   rules:
-  - host: javawebapp.mithuntechdevops.co.in
+  - host: javawebapp.demo.co.in
     http:
       paths:
       - backend:
